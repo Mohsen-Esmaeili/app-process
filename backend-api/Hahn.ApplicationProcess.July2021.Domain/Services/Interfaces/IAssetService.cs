@@ -1,9 +1,6 @@
-﻿using Hahn.ApplicationProcess.July2021.Domain.Models.Asset.Delete;
-using Hahn.ApplicationProcess.July2021.Domain.Models.Asset.Get;
-using Hahn.ApplicationProcess.July2021.Domain.Models.Asset.Post;
-using Hahn.ApplicationProcess.July2021.Domain.Models.Asset.Put;
+﻿using Hahn.ApplicationProcess.July2021.Domain.Models;
 
-namespace Hahn.ApplicationProcess.July2021.Domain.Services.Interfaces
+namespace Hahn.ApplicationProcess.July2021.Domain.Services
 {
     public interface IAssetService
     {

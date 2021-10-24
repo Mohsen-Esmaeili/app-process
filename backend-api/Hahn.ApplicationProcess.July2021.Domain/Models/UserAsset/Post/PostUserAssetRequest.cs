@@ -1,5 +1,5 @@
 ﻿
-namespace Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.Post
+namespace Hahn.ApplicationProcess.July2021.Domain.Models
 {
     public class PostUserAssetRequest
     {

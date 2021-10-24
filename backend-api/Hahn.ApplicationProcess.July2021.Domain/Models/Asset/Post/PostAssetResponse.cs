@@ -1,4 +1,4 @@
-﻿namespace Hahn.ApplicationProcess.July2021.Domain.Models.Asset.Post
+﻿namespace Hahn.ApplicationProcess.July2021.Domain.Models
 {
     public class PostAssetResponse
     {

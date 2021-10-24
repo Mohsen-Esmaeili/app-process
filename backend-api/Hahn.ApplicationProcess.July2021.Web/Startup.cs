@@ -1,6 +1,5 @@
 using Hahn.ApplicationProcess.July2021.Data.DataContext;
-using Hahn.ApplicationProcess.July2021.Domain.Services.Implementation;
-using Hahn.ApplicationProcess.July2021.Domain.Services.Interfaces;
+using Hahn.ApplicationProcess.July2021.Domain.Services;
 using Hahn.ApplicationProcess.July2021.Web.MiddleWares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

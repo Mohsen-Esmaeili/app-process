@@ -1,4 +1,4 @@
-﻿namespace Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.Delete
+﻿namespace Hahn.ApplicationProcess.July2021.Domain.Models
 {
     public class DeleteUserAssetRequest
     {

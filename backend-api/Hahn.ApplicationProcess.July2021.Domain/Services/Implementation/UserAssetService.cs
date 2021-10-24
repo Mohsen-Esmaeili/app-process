@@ -2,12 +2,9 @@
 using System.Linq;
 using Hahn.ApplicationProcess.July2021.Data.DataContext;
 using Hahn.ApplicationProcess.July2021.Data.Implementations;
-using Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.Delete;
-using Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.GetByUserId;
-using Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.Post;
-using Hahn.ApplicationProcess.July2021.Domain.Services.Interfaces;
+using Hahn.ApplicationProcess.July2021.Domain.Models;
 
-namespace Hahn.ApplicationProcess.July2021.Domain.Services.Implementation
+namespace Hahn.ApplicationProcess.July2021.Domain.Services
 {
     public class UserAssetService : IUserAssetService
     {

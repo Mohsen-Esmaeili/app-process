@@ -1,10 +1,6 @@
-﻿using Hahn.ApplicationProcess.July2021.Domain.Models.User.Delete;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Get;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.GetById;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Post;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Put;
+﻿using Hahn.ApplicationProcess.July2021.Domain.Models;
 
-namespace Hahn.ApplicationProcess.July2021.Domain.Services.Interfaces
+namespace Hahn.ApplicationProcess.July2021.Domain.Services
 {
     public interface IUserService
     {

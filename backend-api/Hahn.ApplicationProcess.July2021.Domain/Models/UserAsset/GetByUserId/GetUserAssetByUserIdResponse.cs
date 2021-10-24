@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.GetByUserId
+namespace Hahn.ApplicationProcess.July2021.Domain.Models
 {
     public class GetUserAssetByUserIdResponse
     {

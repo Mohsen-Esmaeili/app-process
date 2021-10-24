@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.Delete;
-using Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.GetByUserId;
-using Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.Post;
-using Hahn.ApplicationProcess.July2021.Domain.Services.Interfaces;
+using Hahn.ApplicationProcess.July2021.Domain.Models;
+using Hahn.ApplicationProcess.July2021.Domain.Services;
 
 namespace Hahn.ApplicationProcess.July2021.Web.Controllers
 {

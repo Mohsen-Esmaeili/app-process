@@ -1,15 +1,9 @@
 ﻿using System.Linq;
 using Hahn.ApplicationProcess.July2021.Data.DataContext;
 using Hahn.ApplicationProcess.July2021.Data.Implementations;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Delete;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Get;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.GetById;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Post;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Put;
-using Hahn.ApplicationProcess.July2021.Domain.Models.UserAsset.Post;
-using Hahn.ApplicationProcess.July2021.Domain.Services.Interfaces;
+using Hahn.ApplicationProcess.July2021.Domain.Models;
 
-namespace Hahn.ApplicationProcess.July2021.Domain.Services.Implementation
+namespace Hahn.ApplicationProcess.July2021.Domain.Services
 {
     public class UserService : IUserService
     {

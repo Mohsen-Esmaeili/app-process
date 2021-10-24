@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Hahn.ApplicationProcess.July2021.Domain.Models.User.Get
+namespace Hahn.ApplicationProcess.July2021.Domain.Models
 {
     public class GetUserResponse
     {

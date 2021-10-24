@@ -1,10 +1,7 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Delete;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Post;
-using Hahn.ApplicationProcess.July2021.Domain.Models.User.Put;
-using Hahn.ApplicationProcess.July2021.Domain.Services.Interfaces;
+using Hahn.ApplicationProcess.July2021.Domain.Models;
+using Hahn.ApplicationProcess.July2021.Domain.Services;
 
 namespace Hahn.ApplicationProcess.July2021.Web.Controllers
 {

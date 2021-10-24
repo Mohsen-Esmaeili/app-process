@@ -1,4 +1,4 @@
-﻿namespace Hahn.ApplicationProcess.July2021.Domain.Models.Asset.Put
+﻿namespace Hahn.ApplicationProcess.July2021.Domain.Models
 {
     public class PutAssetRequest
     {
