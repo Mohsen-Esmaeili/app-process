@@ -1,0 +1,13 @@
+<template>
+  <require from="bootstrap/css/bootstrap.css"></require>
+
+  <require from="./elements/layouts/headerlayout"></require>
+  <require from="./elements/layouts/footerlayout"></require>
+
+  <div class="container">
+    <header-layout router-config.bind="router.currentInstruction.config"></header-layout>
+    <router-view></router-view>
+
+    <footer-layout></footer-layout>
+  </div>
+</template>

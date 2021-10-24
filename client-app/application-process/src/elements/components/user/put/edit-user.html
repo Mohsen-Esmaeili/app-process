@@ -1,0 +1,63 @@
+<template>
+  <ux-dialog>
+    <ux-dialog-header>
+      <div class="d-flex flex-row justify-content-between">
+        <h5>Edit Asset</h5>
+        <i class="ion-close" style="cursor: pointer;" click.trigger="controller.cancel()"></i>
+      </div>
+    </ux-dialog-header>
+    <ux-dialog-body>
+      <form>
+        <div class="row my-1">
+          <div class="form-group col-sm-6">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
+              value.bind="user.firstName">
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
+              value.bind="user.lastName">
+          </div>
+        </div>
+        <div class="row my-1">
+          <div class="form-group col-sm-6">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" value.bind="user.email">
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="age">Age</label>
+            <input type="number" min="18" max="75" class="form-control" id="age" placeholder="Enter age"
+              value.bind="user.age">
+          </div>
+        </div>
+        <div class="row my-1">
+          <div class="form-group col-sm-6">
+            <label for="postalCode">Postal Code</label>
+            <input type="text" maxlength="10" class="form-control" id="postalCode" placeholder="Enter postal code"
+              value.bind="user.postalCode">
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="street">Street</label>
+            <input type="text" class="form-control" id="street" placeholder="Enter street name"
+              value.bind="user.street">
+          </div>
+        </div>
+        <div class="row my-1">
+          <div class="form-group col-sm-6">
+            <label for="houseNumber">House Number</label>
+            <input type="text" class="form-control" id="houseNumber" placeholder="Enter house number"
+              value.bind="user.houseNumber">
+          </div>
+          <div class="col-sm-6">
+          </div>
+        </div>
+      </form>
+    </ux-dialog-body>
+
+    <ux-dialog-footer>
+      <button class="btn-success" click.trigger="submit()">Save</button>
+      <button click.trigger="controller.cancel()">Cancel</button>
+    </ux-dialog-footer>
+  </ux-dialog>
+</template>
