@@ -2,7 +2,6 @@
 {
     public class PutAssetRequest: AssetBase
     {
-        public string Name { get; set; }
-        public string Symbol { get; set; }
+        public string Id { get; set; }
     }
 }
