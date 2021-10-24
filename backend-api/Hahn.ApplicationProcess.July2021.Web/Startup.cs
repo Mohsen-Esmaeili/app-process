@@ -1,5 +1,9 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Hahn.ApplicationProcess.July2021.Data.DataContext;
+using Hahn.ApplicationProcess.July2021.Domain.Models;
 using Hahn.ApplicationProcess.July2021.Domain.Services;
+using Hahn.ApplicationProcess.July2021.Domain.Validators;
 using Hahn.ApplicationProcess.July2021.Web.MiddleWares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,13 +39,16 @@ namespace Hahn.ApplicationProcess.July2021.Web
             services.AddControllers(options =>
             {
                 options.AllowEmptyInputInBodyModelBinding = true;
-            });
+            }).AddFluentValidation();
+
+            services.AddTransient<IValidator<UserBase>, UserValidator>();
+            services.AddTransient<IValidator<AssetBase>, AssetValidator>();
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
-
+            
             services.AddCors();
 
             // If using Kestrel:

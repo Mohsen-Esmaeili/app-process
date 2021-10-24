@@ -1,13 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace Hahn.ApplicationProcess.July2021.Data.DataContext
+﻿
+namespace Hahn.ApplicationProcess.July2021.Domain.Models
 {
-    public class User
+    public class UserBase
     {
-        [Key]
-        [Required]
-        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
@@ -15,7 +10,5 @@ namespace Hahn.ApplicationProcess.July2021.Data.DataContext
         public string PostalCode { get; set; }
         public string Street { get; set; }
         public int HouseNumber { get; set; }
-
-        public ICollection<UserAsset> UserAssets { get; set; }
     }
 }

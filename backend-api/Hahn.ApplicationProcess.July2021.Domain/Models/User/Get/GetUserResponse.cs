@@ -11,7 +11,7 @@ namespace Hahn.ApplicationProcess.July2021.Domain.Models
             public int Id { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
-            public byte Age { get; set; }
+            public int Age { get; set; }
             public string Email { get; set; }
             public string PostalCode { get; set; }
             public string Street { get; set; }
