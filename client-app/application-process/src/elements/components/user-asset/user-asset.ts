@@ -16,29 +16,35 @@ export class UserAsset
 
   constructor(private service: UserAssetService, private assetService: AssetService, private controller: DialogController) { }
 
-  activate(userId: number)
+  activate(userId: number): void
   {
     this.userId = userId;
-    this.loadByUserId();
-    this.loadAllAssets();
+    this.load();
   }
 
-  loadAllAssets()
-  {
-    this.allAssets = [];
-    this.assetService.get().then(response => this.allAssets = response.assets);
-  }
-
-  loadByUserId()
+  load(): void
   {
     this.userAssets = [];
     this.service.get(this.userId).then(response =>
     {
       this.userAssets = response.userAssets;
+      this.allAssets = [];
+      this.assetService.get().then(assetsResponse =>
+      {
+        const existsAssets = response.userAssets.map(userAsset => userAsset.assetId);
+        assetsResponse.assets.forEach(asset =>
+        {
+          if (!existsAssets.includes(asset.id))
+          {
+            this.allAssets.push(asset);
+          }
+        });
+      });
+
     });
   }
 
-  onAdd()
+  onAdd(): void
   {
     if (!this.selectedAssetId)
     {
@@ -49,14 +55,17 @@ export class UserAsset
     request.UserId = this.userId;
     request.AssetId = this.selectedAssetId;
 
-    this.service.post(request);
-
-    this.loadByUserId();
+    this.service.post(request).then(() =>
+    {
+      this.load();
+    });
   }
 
-  onDelete(id: number)
+  onDelete(id: number): void
   {
-    this.service.delete(id);
-    this.loadByUserId();
+    this.service.delete(id).then(() =>
+    {
+      this.load();
+    });
   }
 }

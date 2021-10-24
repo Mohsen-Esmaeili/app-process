@@ -81,26 +81,6 @@
         "prepend": [
           "node_modules/promise-polyfill/dist/polyfill.min.js",
           "node_modules/requirejs/require.js"
-        ],
-        "dependencies": [
-          "aurelia-bootstrapper",
-          "aurelia-loader-default",
-          "aurelia-pal-browser",
-          {
-            "name": "aurelia-testing",
-            "env": "dev"
-          },
-          "text",
-          "extend",
-          "aurelia-notification",
-          {
-            "name": "humane-js",
-            "path": "../node_modules/humane-js",
-            "main": "humane",
-            "resources": [
-              "themes/libnotify.css"
-            ]
-          }
         ]
       }
     ],

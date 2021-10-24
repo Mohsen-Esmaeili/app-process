@@ -1,6 +1,5 @@
 import { inject } from 'aurelia-dependency-injection';
 import { DialogService } from "aurelia-dialog";
-import { Notification } from "aurelia-notification";
 import { ConfirmModel } from 'elements/models/confirm.model';
 import { UserModel } from "elements/models/user.model";
 import { UserService } from "elements/services/data-services/user.service";
@@ -9,18 +8,18 @@ import { UserAsset } from '../user-asset/user-asset';
 import { CreateUser } from './post/create-user';
 import { EditUser } from './put/edit-user';
 
-@inject(UserService, DialogService, Notification)
+@inject(UserService, DialogService)
 export class User
 {
   users: Array<UserModel> = [];
-  constructor(private service: UserService, private dialogService: DialogService, private notification: Notification) { }
+  constructor(private service: UserService, private dialogService: DialogService) { }
 
-  created()
+  created(): void
   {
     this.load();
   }
 
-  load()
+  load(): void
   {
     this.users = [];
     this.service.get().then(x =>
@@ -29,42 +28,40 @@ export class User
     });
   }
 
-  onEdit(user: UserModel)
+  onEdit(user: UserModel): void
   {
     this.dialogService.open({ viewModel: EditUser, model: user, lock: true }).whenClosed(response =>
     {
       if (!response.wasCancelled)
       {
-        this.notification.success("Succeed!");
-        console.log('good - ', response.output);
-      }
-    });
-  }
-
-  onAddNew()
-  {
-    this.dialogService.open({ viewModel: CreateUser, model: {}, lock: true }).whenClosed(response =>
-    {
-      if (!response.wasCancelled)
-      {
-        this.notification.success("Succeed!");
         this.load();
       }
     });
   }
 
-  onManageAsset(user: UserModel)
+  onAddNew(): void
+  {
+    this.dialogService.open({ viewModel: CreateUser, model: {}, lock: true }).whenClosed(response =>
+    {
+      if (!response.wasCancelled)
+      {
+        this.load();
+      }
+    });
+  }
+
+  onManageAsset(user: UserModel): void
   {
     this.dialogService.open({ viewModel: UserAsset, model: user.id, lock: true }).whenClosed(response =>
     {
       if (!response.wasCancelled)
       {
-        this.notification.success("Succeed!");
+        //Successfully Done
       }
     });
   }
 
-  onDelete(userId: number)
+  onDelete(userId: number): void
   {
     const confirmModel = new ConfirmModel();
     confirmModel.title = "Delete User";
@@ -74,13 +71,10 @@ export class User
       {
         if (!response.wasCancelled)
         {
-          this.service.delete(userId);
-          const index = this.users.findIndex(x => x.id === userId);
-          if (index > -1)
+          this.service.delete(userId).then(() =>
           {
-            this.notification.success("Succeed!");
-            this.users.splice(index, 1);
-          }
+            this.load();
+          });
         }
       });
   }

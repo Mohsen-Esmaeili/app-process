@@ -8,27 +8,23 @@ export class UserService
 {
   constructor(private apiService: ApiService) { }
 
-  get(): any
+  get(): Promise<any>
   {
-    return this.apiService.get('/user')
-      .then(data => { return data; });
+    return this.apiService.get('/user');
   }
 
-  post(request: PostUserRequest): any
+  post(request: PostUserRequest): Promise<any>
   {
-    this.apiService.post('/user', request)
-      .then(data => { return data; });
+    return this.apiService.post('/user', request);
   }
 
-  put(request: PutUserRequest): any
+  put(request: PutUserRequest): Promise<any>
   {
-    this.apiService.put('/user', request)
-      .then(data => data);
+    return this.apiService.put('/user', request);
   }
 
-  delete(id: number): any
+  delete(id: number): Promise<any>
   {
-    this.apiService.delete(`/user?Id=${ id }`)
-      .then(data => data);
+    return this.apiService.delete(`/user?Id=${ id }`);
   }
 }

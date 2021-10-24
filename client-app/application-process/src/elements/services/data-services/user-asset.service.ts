@@ -7,21 +7,18 @@ export class UserAssetService
 {
   constructor(private apiService: ApiService) { }
 
-  get(userId: number): any
+  get(userId: number): Promise<any>
   {
-    return this.apiService.get(`/UserAsset?UserId=${ userId }`)
-      .then(data => { return data; });
+    return this.apiService.get(`/UserAsset?UserId=${ userId }`);
   }
 
-  post(request: PostUserAssetRequest): any
+  post(request: PostUserAssetRequest): Promise<any>
   {
-    this.apiService.post('/UserAsset', request)
-      .then(data => { return data; });
+    return this.apiService.post('/UserAsset', request);
   }
 
-  delete(id: number): any
+  delete(id: number): Promise<any>
   {
-    this.apiService.delete(`/UserAsset?Id=${ id }`)
-      .then(data => data);
+    return this.apiService.delete(`/UserAsset?Id=${ id }`);
   }
 }

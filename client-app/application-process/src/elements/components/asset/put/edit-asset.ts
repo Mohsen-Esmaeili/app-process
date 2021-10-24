@@ -12,19 +12,21 @@ export class EditAsset
 
   constructor(private service: AssetService, private controller: DialogController) { }
 
-  activate(asset: AssetModel)
+  activate(asset: AssetModel): void
   {
     this.asset = asset;
   }
 
-  submit()
+  submit(): void
   {
     const request = new PutAssetRequest();
     request.Id = this.asset.id;
     request.Name = this.asset.name;
     request.Symbol = this.asset.symbol;
 
-    this.service.put(request);
-    this.controller.ok();
+    this.service.put(request).then(() =>
+    {
+      this.controller.ok();
+    });
   }
 }

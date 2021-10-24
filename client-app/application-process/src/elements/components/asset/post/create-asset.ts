@@ -1,18 +1,17 @@
 import { DialogController } from 'aurelia-dialog';
 import { inject } from 'aurelia-framework';
-import { Notification } from 'aurelia-notification';
 import { AssetModel } from 'elements/models/asset.model';
 import { PostAssetRequest } from 'elements/models/data-model/post-asset-request.model';
 import { AssetService } from 'elements/services/data-services/asset.service';
 
-@inject(AssetService, DialogController, Notification)
+@inject(AssetService, DialogController)
 export class CreateAsset
 {
   asset: AssetModel = new AssetModel();
 
-  constructor(private service: AssetService, private controller: DialogController, private notification: Notification) { }
+  constructor(private service: AssetService, private controller: DialogController) { }
 
-  submit()
+  submit(): void
   {
     const request = new PostAssetRequest();
     request.Name = this.asset.name;
@@ -20,10 +19,7 @@ export class CreateAsset
 
     this.service.post(request).then(() =>
     {
-      debugger;
+      this.controller.ok();
     });
-    this.controller.ok();
-
-    this.notification.success("Asset is added!");
   }
 }

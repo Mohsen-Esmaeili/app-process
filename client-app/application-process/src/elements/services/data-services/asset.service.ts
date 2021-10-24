@@ -8,22 +8,22 @@ export class AssetService
 {
   constructor(private apiService: ApiService) { }
 
-  get(): any
+  get(): Promise<any>
   {
     return this.apiService.get('/asset');
   }
 
-  post(request: PostAssetRequest): any
+  post(request: PostAssetRequest): Promise<any>
   {
     return this.apiService.post('/asset', request);
   }
 
-  put(request: PutAssetRequest): any
+  put(request: PutAssetRequest): Promise<any>
   {
     return this.apiService.put('/asset', request);
   }
 
-  delete(id: string): any
+  delete(id: string): Promise<any>
   {
     return this.apiService.delete(`/asset?AssetId=${ id }`);
   }

@@ -49,7 +49,9 @@ export class ApiService
       headers: this.setHeaders(),
       body: json(body)
     };
-    return this.http.fetch(`${ config.api_url }${ path }`, options);
+    return this.http.fetch(`${ config.api_url }${ path }`, options)
+      .then(status)
+      .catch(parseError);
   }
 
   delete(path: string)

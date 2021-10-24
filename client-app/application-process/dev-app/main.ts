@@ -8,18 +8,8 @@ export function configure(aurelia: Aurelia): void
     .standardConfiguration()
     .feature('resources')
     .plugin(PLATFORM.moduleName('aurelia-validation'))
-    .plugin(PLATFORM.moduleName('aurelia-dialog'))
-    .plugin('aurelia-notification', config =>
-    {
-      config.configure({
-        translate: false,  // 'true' needs aurelia-i18n to be configured
-        notifications: {
-          'success': 'humane-libnotify-success',
-          'error': 'humane-libnotify-error',
-          'info': 'humane-libnotify-info'
-        }
-      });
-    });
+    .plugin(PLATFORM.moduleName('aurelia-dialog'));
+
   // load the plugin ../src
   // The "resources" is mapped to "../src" in aurelia.json "paths"
 

@@ -12,12 +12,12 @@ export class EditUser
 
   constructor(private service: UserService, private controller: DialogController) { }
 
-  activate(user: UserModel)
+  activate(user: UserModel): void
   {
     this.user = user;
   }
 
-  submit()
+  submit(): void
   {
     const request = new PutUserRequest();
     request.Id = this.user.id;
@@ -29,7 +29,9 @@ export class EditUser
     request.PostalCode = this.user.postalCode;
     request.Street = this.user.street;
 
-    this.service.put(request);
-    this.controller.ok();
+    this.service.put(request).then(() =>
+    {
+      this.controller.ok();
+    });
   }
 }

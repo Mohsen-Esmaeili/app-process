@@ -22,10 +22,9 @@ namespace Hahn.ApplicationProcess.July2021.Domain.Services.Implementation
 
         public GetUserAssetByUserIdResponse GetByUserId(GetUserAssetByUserIdRequest request)
         {
-            var x = _repository.Get(includeProperties: "Asset,User").ToList();
             var response = new GetUserAssetByUserIdResponse
             {
-                UserAssets = _repository.Get().Where(x => x.UserId == request.UserId)
+                UserAssets = _repository.Get(includeProperties: "Asset,User").Where(x => x.UserId == request.UserId)
                     .Select(x => new GetUserAssetByUserIdResponse.UserAssetModel
                     {
                         Id = x.Id,

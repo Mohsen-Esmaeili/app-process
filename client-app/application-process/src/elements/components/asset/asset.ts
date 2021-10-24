@@ -1,6 +1,5 @@
 import { inject } from 'aurelia-dependency-injection';
 import { DialogService } from 'aurelia-dialog';
-import { Notification } from 'aurelia-notification';
 import { AssetModel } from 'elements/models/asset.model';
 import { ConfirmModel } from 'elements/models/confirm.model';
 import { AssetService } from 'elements/services/data-services/asset.service';
@@ -8,18 +7,18 @@ import { ConfirmComponent } from 'elements/shared/confirm-component';
 import { CreateAsset } from './post/create-asset';
 import { EditAsset } from './put/edit-asset';
 
-@inject(AssetService, DialogService, Notification)
+@inject(AssetService, DialogService)
 export class Asset
 {
   assets: Array<AssetModel> = [];
-  constructor(private service: AssetService, private dialogService: DialogService, private notification: Notification) { }
+  constructor(private service: AssetService, private dialogService: DialogService) { }
 
-  created()
+  created(): void
   {
     this.load();
   }
 
-  load()
+  load(): void
   {
     this.assets = [];
     this.service.get().then(x =>
@@ -28,31 +27,29 @@ export class Asset
     });
   }
 
-  onEdit(asset: AssetModel)
+  onEdit(asset: AssetModel): void
   {
     this.dialogService.open({ viewModel: EditAsset, model: asset, lock: true }).whenClosed(response =>
     {
       if (!response.wasCancelled)
       {
-        this.notification.success("Succeed!");
-        console.log('good - ', response.output);
-      }
-    });
-  }
-
-  onAddNew()
-  {
-    this.dialogService.open({ viewModel: CreateAsset, model: {}, lock: true }).whenClosed(response =>
-    {
-      if (!response.wasCancelled)
-      {
-        this.notification.success("Succeed!");
         this.load();
       }
     });
   }
 
-  onDelete(id: string)
+  onAddNew(): void
+  {
+    this.dialogService.open({ viewModel: CreateAsset, model: {}, lock: true }).whenClosed(response =>
+    {
+      if (!response.wasCancelled)
+      {
+        this.load();
+      }
+    });
+  }
+
+  onDelete(id: string): void
   {
     const confirmModel = new ConfirmModel();
     confirmModel.title = "Delete Asset";
@@ -62,13 +59,10 @@ export class Asset
       {
         if (!response.wasCancelled)
         {
-          this.service.delete(id);
-          const index = this.assets.findIndex(x => x.id === id);
-          if (index > -1)
+          this.service.delete(id).then(() =>
           {
-            this.notification.success("Succeed!");
-            this.assets.splice(index, 1);
-          }
+            this.load();
+          });
         }
       });
   }
