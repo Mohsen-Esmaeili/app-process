@@ -2,7 +2,6 @@
 using Hahn.ApplicationProcess.July2021.Data.DataContext;
 using Hahn.ApplicationProcess.July2021.Data.Implementations;
 using Hahn.ApplicationProcess.July2021.Domain.Models;
-using User = Hahn.ApplicationProcess.July2021.Domain.Models.User.User;
 
 namespace Hahn.ApplicationProcess.July2021.Domain.Services
 {
