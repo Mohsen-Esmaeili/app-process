@@ -10,13 +10,19 @@
       <form>
         <div class="form-group my-1">
           <label for="assetName">Name</label>
-          <input type="text" id="assetName" class="form-control" placeholder="Enter a name" value.bind="asset.name">
+          <input type="text" id="assetName" class="form-control" placeholder="Enter a name"
+            value.bind="asset.name & validate">
         </div>
         <div class="form-group my-1">
           <label for="assetSymbol">Symbol</label>
           <input type="text" id="assetSymbol" class="form-control" placeholder="Enter a symbol"
-            value.bind="asset.symbol">
+            value.bind="asset.symbol & validate">
         </div>
+        <ul style="color: red;" if.bind="controller.errors">
+          <li repeat.for="error of controller.errors">
+            ${error.message}
+          </li>
+        </ul>
       </form>
     </ux-dialog-body>
 
