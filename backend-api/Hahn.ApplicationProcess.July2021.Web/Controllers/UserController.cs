@@ -5,9 +5,8 @@ using Hahn.ApplicationProcess.July2021.Domain.Services;
 
 namespace Hahn.ApplicationProcess.July2021.Web.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class UserController : ApiBaseController
     {
         private readonly ILogger<UserController> _logger;
         private readonly IUserService _service;

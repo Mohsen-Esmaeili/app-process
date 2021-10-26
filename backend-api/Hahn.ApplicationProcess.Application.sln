@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicationProcess.Jul
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicationProcess.July2021.Domain", "Hahn.ApplicationProcess.July2021.Domain\Hahn.ApplicationProcess.July2021.Domain.csproj", "{73A7BDC4-A855-4AD1-BC75-50FE90520965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicationProcess.July2021.Web", "Hahn.ApplicationProcess.July2021.Web\Hahn.ApplicationProcess.July2021.Web.csproj", "{EF1EC069-2FC8-43BC-9C72-49A45334FE00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicationProcess.July2021.Web", "Hahn.ApplicationProcess.July2021.Web\Hahn.ApplicationProcess.July2021.Web.csproj", "{EF1EC069-2FC8-43BC-9C72-49A45334FE00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

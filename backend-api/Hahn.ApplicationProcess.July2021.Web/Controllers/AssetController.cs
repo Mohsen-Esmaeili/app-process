@@ -5,9 +5,8 @@ using Hahn.ApplicationProcess.July2021.Domain.Services;
 
 namespace Hahn.ApplicationProcess.July2021.Web.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
-    public class AssetController : ControllerBase
+    public class AssetController : ApiBaseController
     {
         private readonly ILogger<AssetController> _logger;
         private readonly IAssetService _service;
